@@ -6,10 +6,10 @@ gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
 # comment out on 0713 due to he heroku update
 #gem 'sqlite3'
-gem install sqlite3 -v '1.3.9'
+gem install sqlite3 ,'1.3.9'
 
 group :development do
- gem install sqlite3 -v '1.3.9'
+ gem install sqlite3 ,'1.3.9'
 end
 group :production do
   gem 'pg'
