@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   ### changed on 0722 ### 
   def index
-    topics_url
+    redirect_to topics_url
   end
 
 #### 0722 back up ###
