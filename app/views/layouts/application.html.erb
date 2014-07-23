@@ -40,13 +40,16 @@
 
     <div class="navbar navbar-fluid-top">
       <div class="navbar-inner">
+
         <div class="container-fluid">
+
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Yakecsson</a>
+          <%= image_tag 'Yakecsson_log2.svg', :size => '69x37' ,:class => "brand" %>
+          <a class="brand" href="#">Yakecsson Japan Blog</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><%= link_to "Link1", "/path1"  %></li>
@@ -79,7 +82,7 @@
 
       <footer>
         <p>&copy; Yakecsson 2014</p>
-        <%= image_tag("Yakecsson_log2.svg") %>
+        
       </footer>
 
     </div> <!-- /container -->

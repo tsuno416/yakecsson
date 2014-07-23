@@ -3,14 +3,22 @@ class PostsController < ApplicationController
 
   # GET /posts
   # GET /posts.json
+  ### changed on 0722 ### 
   def index
-    @posts = Post.all
-    
+    topics_url
   end
+
+#### 0722 back up ###
+#  def index
+#    @posts = Post.all    
+#  end
+
+
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+
   end
 
   # GET /posts/new
@@ -25,21 +33,20 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-	@topic = Topic.find(params[:topic_id])
-	@post = @topic.posts.build(post_params)
-  max_num = @topic.posts.maximum(:post_number)
-  max_num = 0 if max_num.blank?
-  @post.post_number = max_num + 1
+    @topic = Topic.find(params[:topic_id])
+    @post = @topic.posts.build(post_params)
+    max_num = @topic.posts.maximum(:post_number)
+    max_num = 0 if max_num.blank?
+    @post.post_number = max_num + 1
 
-  
-	respond_to do |format|
-		if @post.save
-			format.html { redirect_to [@topic, @post], notice: 'Post was successfully created.' }
-			format.json { render json: @post, status: :created, location: [@post, @post] }
-		else
-      			format.html { render action: "new" }
-      			format.json { render json: @post.errors, status: :unprocessable_entity }
-    		end
+  	respond_to do |format|
+		  if @post.save
+			 format.html { redirect_to [@topic, @post], notice: 'Post was successfully created.' }
+			 format.json { render json: @post, status: :created, location: [@post, @post] }
+		  else
+    		format.html { render action: "new" }
+  			format.json { render json: @post.errors, status: :unprocessable_entity }
+    	end
   	end
   end
 

@@ -10,13 +10,13 @@ class TopicsController < ApplicationController
   # GET /topics/1
   # GET /topics/1.json
   def show
-	@topic = Topic.find(params[:id])
-	@posts = @topic.posts
-	@post = Post.new
-	respond_to do |format|
-		format.html # show.html.erb
-		format.json { render json: @topic }
-	end
+	 @topic = Topic.find(params[:id])
+	 @posts = @topic.posts
+	 @post = Post.new
+	 respond_to do |format|
+	 	format.html # show.html.erb
+	 	format.json { render json: @topic }
+	 end
   end
 
   # GET /topics/new
