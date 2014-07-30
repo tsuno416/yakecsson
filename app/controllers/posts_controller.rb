@@ -5,7 +5,14 @@ class PostsController < ApplicationController
   # GET /posts.json
   ### changed on 0722 ### 
   def index
-    redirect_to topics_url
+    #redirect_to topics_url
+    
+    # 0730 when redirect to blow path, success to redirect to original posts
+    # how transfer the topic's :id such as via session ? 
+    # also comment out since the routing solved in create method
+    #@topic = Topic.find(params[:topic_id])
+    #id = @topic
+    #redirect_to topic_path(1)
   end
 
 #### 0722 back up ###
@@ -18,7 +25,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-
+  
   end
 
   # GET /posts/new
@@ -41,7 +48,8 @@ class PostsController < ApplicationController
 
   	respond_to do |format|
 		  if @post.save
-			 format.html { redirect_to [@topic, @post], notice: 'Post was successfully created.' }
+			 #format.html { redirect_to [@topic, @post], notice: 'Post was successfully created.' }
+       format.html { redirect_to topic_path(@topic), notice: 'Post was successfully created.' }
 			 format.json { render json: @post, status: :created, location: [@post, @post] }
 		  else
     		format.html { render action: "new" }
